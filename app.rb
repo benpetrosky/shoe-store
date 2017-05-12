@@ -15,6 +15,10 @@ get("/stores/new") do
   @stores = Store.all()
   erb(:stores)
 end
+get("/stores") do
+  @stores = Store.all()
+  erb(:stores)
+end
 
 post('/stores') do
   name = params.fetch("name")
@@ -48,4 +52,12 @@ delete('/store_delete/:id') do
   store.delete()
   @stores = Store.all()
   erb(:stores)
+end
+
+patch('/store_update/:id') do
+  id = params.fetch("id").to_i
+  name = params.fetch("name")
+  @store = Store.find(id)
+  @store.update(:name => name)
+  erb(:store)
 end

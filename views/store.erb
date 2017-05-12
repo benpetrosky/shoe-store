@@ -4,3 +4,14 @@
   <input type="hidden" name="_method" value="delete">
   <button type="submit">Remove This Store From Database</button>
 </form>
+
+<form action="/store_update/<%= @store.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Change the Name of the Store</label>
+  <input type="text" name="name">
+  <button type="submit">Update Store</button>
+</form>
+
+<button>
+<a href="/stores">Back to list of Stores</a>
+</button>
