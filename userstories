@@ -1,8 +1,8 @@
 
 As a user, I want the price to be in currency format even if I just inputted a number. (In other words, typing in 50 should be updated to $50.00.)
 
-
 As a user, I want all stores and brands to be unique. There shouldn't be two entries in the database for Blundstone.
+
 
 
 

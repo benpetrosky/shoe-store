@@ -22,11 +22,7 @@ end
 
 post('/stores') do
   name = params.fetch("name")
-  if Store.exists?(name) != false
-    Store.create(:name => name)
-    @stores = Store.all()
-    erb(:stores)
-  end
+  Store.create(:name => name)
   @stores = Store.all()
   erb(:stores)
 end
@@ -39,14 +35,10 @@ end
 post('/brands') do
   name = params.fetch("name")
   price = params.fetch("price").to_i
-    if Brand.exists?(name) != false
-      Brand.create(:name => name, :price => price)
-      @brands = Brand.all()
-      erb(:brands)
-    end
-    @brands = Brand.all()
-    erb(:brands)
-  end
+  Brand.create(:name => name, :price => price)
+  @brands = Brand.all()
+  erb(:brands)
+end
 
 get("/stores/:id") do
   id = params.fetch("id").to_i
