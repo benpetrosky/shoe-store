@@ -22,3 +22,16 @@ post('/stores') do
   @stores = Store.all()
   erb(:stores)
 end
+
+get("/brands/new") do
+  @brands = Brand.all()
+  erb(:brands)
+end
+
+post('/brands') do
+  name = params.fetch("name")
+  price = params.fetch("price").to_i
+  Brand.create(:name => name, :price => price)
+  @brands = Brand.all()
+  erb(:brands)
+end
