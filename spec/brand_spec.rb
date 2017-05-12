@@ -6,6 +6,10 @@ describe(Brand) do
     brand = Brand.new({:name => ""})
     expect(brand.save()).to(eq(false))
   end
+  it("Capitalizes the first letter of every word in a brand name") do
+    brand = Brand.create({:name => "nike"})
+    expect(brand.name()).to(eq("Nike"))
+  end
   it("ensures the length of the brand name is no more than 100 characters") do
     brand = Brand.new({:name => "a".*(101)})
     expect(brand.save()).to(eq(false))

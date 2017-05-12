@@ -3,7 +3,7 @@
 <% if @stores.any?() %>
     <ul>
     <% @stores.each() do |store| %>
-      <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
+      <li><a href="/stores/<%= store.id() %>"><%= store.name().split.map(&:capitalize).join(' ') %></a></li>
     <% end %>
     </ul>
 
