@@ -6,6 +6,11 @@ describe(Store) do
     store = Store.new({:name => ""})
     expect(store.save()).to(eq(false))
   end
+  it("assures that a store name entry is unique in the database") do
+    store1 = Store.create({:name => "sams super shoe store"})
+    store2 = Store.new({:name => "sams super shoe store"})
+    expect(store2.save()).to(eq(false))
+  end
   it("ensures the length of the store name is no more than 100 characters") do
     store = Store.new({:name => "a".*(101)})
     expect(store.save()).to(eq(false))

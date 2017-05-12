@@ -7,8 +7,7 @@ describe(Brand) do
     expect(brand.save()).to(eq(false))
   end
   it("assures that a brand name entry is unique in the database") do
-    brand1 = Brand.new({:name => "addidas"})
-    brand1.save()
+    brand1 = Brand.create({:name => "addidas"})
     brand2 = Brand.new({:name => "addidas"})
     expect(brand2.save()).to(eq(false))
   end
