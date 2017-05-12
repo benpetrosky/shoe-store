@@ -58,7 +58,7 @@ end
 
 patch('/store_update/:id') do
   id = params.fetch("id").to_i
-  name = params.fetch("name")
+  name = params.fetch("name", "@store.name()")
   brand_ids = params.fetch("brand_ids", "")
   @brands = Brand.all()
 

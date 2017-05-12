@@ -9,7 +9,7 @@
 <h3>Shoe brands at this store</h3>
 <ul>
   <% @store_brands.each() do |brand| %>
-    <li><a href="/<%= @store.id()%>/<%= brand.id()%>"><%= brand.name() %></a></li>
+    <li><a href="/<%= @store.id()%>/<%= brand.id()%>"><%= brand.name() %></a> <%= brand.price() %></li>
   <% end %>
 </ul>
 
