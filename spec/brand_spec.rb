@@ -6,6 +6,10 @@ describe(Brand) do
     brand = Brand.new({:name => ""})
     expect(brand.save()).to(eq(false))
   end
+  it("ensures the length of the brand name is no more than 100 characters") do
+    brand = Brand.new({:name => "a".*(101)})
+    expect(brand.save()).to(eq(false))
+  end
   describe('#stores') do
     it('each brand can have many stores') do
       brand = Brand.create({:name => "nike"})

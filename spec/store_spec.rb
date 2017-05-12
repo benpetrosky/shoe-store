@@ -6,6 +6,10 @@ describe(Store) do
     store = Store.new({:name => ""})
     expect(store.save()).to(eq(false))
   end
+  it("ensures the length of the store name is no more than 100 characters") do
+    store = Store.new({:name => "a".*(101)})
+    expect(store.save()).to(eq(false))
+  end
   describe('#brands') do
     it('each store can have many brands') do
       store = Store.create({:name => "shoe mart"})
