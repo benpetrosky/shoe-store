@@ -35,3 +35,17 @@ post('/brands') do
   @brands = Brand.all()
   erb(:brands)
 end
+
+get("/stores/:id") do
+  id = params.fetch("id").to_i
+  @store = Store.find(id)
+  erb(:store)
+end
+
+delete('/store_delete/:id') do
+  id = params.fetch("id").to_i
+  store = Store.find(id)
+  store.delete()
+  @stores = Store.all()
+  erb(:stores)
+end
