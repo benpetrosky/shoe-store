@@ -6,6 +6,12 @@ describe(Brand) do
     brand = Brand.new({:name => ""})
     expect(brand.save()).to(eq(false))
   end
+  it("assures that a brand name entry is unique in the database") do
+    brand1 = Brand.new({:name => "addidas"})
+    brand1.save()
+    brand2 = Brand.new({:name => "addidas"})
+    expect(brand2.save()).to(eq(false))
+  end
   it("Capitalizes the first letter of every word in a brand name") do
     brand = Brand.create({:name => "nike"})
     expect(brand.name()).to(eq("Nike"))

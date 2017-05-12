@@ -1,13 +1,4 @@
 
-As a user, I want to be able to associate the same brand of shoes with multiple stores.
-
-
-As a user, I want to be able to see all of the brands a store sells on the individual store page.
-
-
-As a user, I want store names and shoe brands to be saved with a capital letter no matter how I enter them.
-
-
 As a user, I want the price to be in currency format even if I just inputted a number. (In other words, typing in 50 should be updated to $50.00.)
 
 

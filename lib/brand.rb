@@ -3,7 +3,10 @@ class Brand < ActiveRecord::Base
 
   validates(:name, {:presence => true, :length => { :maximum => 100 }})
 
+
   before_save(:upcase_name)
+
+
 
   private
   def upcase_name
