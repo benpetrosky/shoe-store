@@ -4,14 +4,37 @@
   <input type="hidden" name="_method" value="delete">
   <button type="submit">Remove This Store From Database</button>
 </form>
+<hr>
+<h2>The store has the following Shoe Brands</h2>
+<h3>Shoe brands at this store</h3>
+<ul>
+  <% @store_brands.each() do |brand| %>
+    <li><a href="/<%= @store.id()%>/<%= brand.id()%>"><%= brand.name() %></a></li>
+  <% end %>
+</ul>
 
+
+
+<hr>
 <form action="/store_update/<%= @store.id() %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <label for="name">Change the Name of the Store</label>
   <input type="text" name="name">
+  <h3>Brands</h3>
+  <% @brands.each() do |brand| %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>"><%= brand.name()%>
+      </label>
+    </div>
+  <%end%>
   <button type="submit">Update Store</button>
 </form>
 
 <button>
 <a href="/stores">Back to list of Stores</a>
+</button>
+
+<button>
+<a href="/">Back Home</a>
 </button>
