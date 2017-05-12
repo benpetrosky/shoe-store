@@ -58,13 +58,17 @@ end
 
 patch('/store_update/:id') do
   id = params.fetch("id").to_i
-  name = params.fetch("name", "@store.name()")
+  name = params.fetch("name", "")
   brand_ids = params.fetch("brand_ids", "")
   @brands = Brand.all()
 
   @store = Store.find(id)
   @store_brands = @store.brands()
-  @store.update(:name => name)
+
+
+  if name != ""
+    @store.update(:name => name)
+  end
 
   if brand_ids != ""
     brand_ids.each() do |brand_id|
